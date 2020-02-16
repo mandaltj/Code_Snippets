@@ -4,6 +4,8 @@
 std::vector<Core::APU> Core::APU_policy = apu_policy_init();
 
 std::vector<Core::APU> Core::apu_policy_init(){
+    std::vector<APU> APU_temp;
+
     std::string filename = "apu_init.txt";
     std::ifstream infile(filename);
     if(!infile) {
@@ -17,9 +19,10 @@ std::vector<Core::APU> Core::apu_policy_init(){
     uint64_t perm;
 
     while(infile >> id >> start_addr >> end_addr >> perm){
-        APU_policy.emplace_back(id, start_addr, end_addr, perm);
+        APU_temp.emplace_back(id, start_addr, end_addr, perm);
     }
 
+    return APU_temp;
 }
 
 void Core::print_apu_policy(){
