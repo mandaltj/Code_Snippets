@@ -4,6 +4,8 @@
 std::vector<Core::APU> Core::APU_policy = apu_policy_init();
 
 std::vector<Core::APU> Core::apu_policy_init(){
+    std::cout<<"Initializing APU structure\n";
+
     std::vector<APU> APU_temp;
 
     std::string filename = "apu_init.txt";

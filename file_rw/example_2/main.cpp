@@ -2,9 +2,19 @@
 #include <iostream>
 #include "test.h"
 #include "test.cpp"
+#include <unistd.h>
+
+std::string get_current_dir(){
+    char buff[FILENAME_MAX];
+    getcwd(buff, FILENAME_MAX);
+    std::string current_working_dir(buff);
+    return current_working_dir;
+}
 
 int main(){
     Core::print_apu_policy();
+
+    std::cout<<"Current Directory: "<<get_current_dir()<<'\n';
 
     Core A(0, 10, 1);
     Core B(1, 5, 1);
