@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main(){
 	unsigned char c = 0xFF;
 	printf("Here: %x\n", c);
