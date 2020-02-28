@@ -13,6 +13,10 @@ int main(){
             myarr[i][j] = new int[z_dim];
         }
     }
+    std::cout<<"myarr Size: "<<sizeof(myarr)<<'\n';
+    std::cout<<"myarr[] Size: "<<sizeof(myarr[0])<<'\n';
+    std::cout<<"myarr[][] Size: "<<sizeof(myarr[0][0])<<'\n';
+    std::cout<<"myarr[][][] Size: "<<sizeof(myarr[0][0][0])<<'\n';
 
     int ***test_arr = (int ***)malloc(x_dim*sizeof(int**));
     for(int i=0; i<x_dim; i++){
@@ -22,6 +26,10 @@ int main(){
             test_arr[i][j] = (int *)malloc(z_dim*sizeof(int));
         }
     }
+    std::cout<<"test_arr Size: "<<sizeof(test_arr)<<'\n';
+    std::cout<<"test_arr[] Size: "<<sizeof(test_arr[0])<<'\n';
+    std::cout<<"test_arr[][] Size: "<<sizeof(test_arr[0][0])<<'\n';
+    std::cout<<"test_arr[][][] Size: "<<sizeof(test_arr[0][0][0])<<'\n';
     //myarr is a pointer to an array of pointer to pointer of length x_dim
 
     //myarr[i] is a pointer to an array of pointer of length y_dim
@@ -60,6 +68,27 @@ int main(){
         delete [] test_arr[i];
     }
     delete [] test_arr;
+
+
+    std::cout<<"Double** size:"<<sizeof(double **)<<'\n';
+    std::cout<<"Int** size:"<<sizeof(int **)<<'\n';
+    std::cout<<"Double* size:"<<sizeof(double *)<<'\n';
+    std::cout<<"Int* size:"<<sizeof(int *)<<'\n';
+    std::cout<<"Double size:"<<sizeof(double)<<'\n';
+    std::cout<<"Int size:"<<sizeof(int)<<'\n';
+
+    int * arr_1 = (int *)malloc(4*sizeof(int));
+    arr_1[0] = 1;
+    arr_1[1] = 2;
+    arr_1[2] = 3;
+    arr_1[3] = 4;
+    arr_1[4] = 5;
+    std::cout<<"arr_1 size:"<<sizeof(arr_1)<<'\n';
+    std::cout<<arr_1[0]<<'\n';
+    std::cout<<arr_1[1]<<'\n';
+    std::cout<<arr_1[2]<<'\n';
+    std::cout<<arr_1[3]<<'\n';
+    std::cout<<arr_1[4]<<'\n';
 
     return 0;
 }
