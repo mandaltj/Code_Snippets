@@ -18,6 +18,7 @@ int main(){
     std::cout<<"myarr[][] Size: "<<sizeof(myarr[0][0])<<'\n';
     std::cout<<"myarr[][][] Size: "<<sizeof(myarr[0][0][0])<<'\n';
 
+
     int ***test_arr = (int ***)malloc(x_dim*sizeof(int**));
     for(int i=0; i<x_dim; i++){
         test_arr[i] = (int **)malloc(y_dim*sizeof(int *));
@@ -26,6 +27,20 @@ int main(){
             test_arr[i][j] = (int *)malloc(z_dim*sizeof(int));
         }
     }
+
+//This also works because malloc allocates a buffer of certain size. It doesn't
+//dictate what the test_arr[i][j] or test_arr[i][j][k] are supposed to contain.
+/*
+    int ***test_arr = (int***)malloc(x_dim*sizeof(int **));
+    for(int i=0; i<x_dim; i++){
+        test_arr[i] = (int**)malloc(y_dim*sizeof(int **));
+        for(int j=0; j<y_dim; j++){
+            // std::cout<<"Here!!\n";
+            test_arr[i][j] = (int *)malloc(z_dim*sizeof(int **));
+        }
+    }
+*/
+
     std::cout<<"test_arr Size: "<<sizeof(test_arr)<<'\n';
     std::cout<<"test_arr[] Size: "<<sizeof(test_arr[0])<<'\n';
     std::cout<<"test_arr[][] Size: "<<sizeof(test_arr[0][0])<<'\n';
@@ -35,20 +50,25 @@ int main(){
     //myarr[i] is a pointer to an array of pointer of length y_dim
     //myarr[i][j] is a pointer to an array of integers of length z_dim
 
+    test_arr[0][0][0] = 9;
+    test_arr[1][0][1] = 7;
+    test_arr[0][1][1] = 5;
+    test_arr[1][1][1] = 10;
+
     std::cout<<"Display 3D Array: \n";
     for(int i=0; i<x_dim; i++){
         std::cout<<"[";
         for(int j=0; j<y_dim; j++){
             std::cout<<"[";
             for(int k=0; k<z_dim; k++){
-                std::cout<<myarr[i][j][k]<<",";
+                std::cout<<test_arr[i][j][k]<<",";
             }
             std::cout<<"], ";
         }
         std::cout<<"]\n";
     }
 
-    test_arr[0][0][0] = 1;
+
 
     //We can't simply use delete[] myarr to delete this 3D array.
     for(int i=0; i<x_dim; i++){
