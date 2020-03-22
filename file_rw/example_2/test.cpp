@@ -1,6 +1,9 @@
 #include <vector>
 #include "test.h"
 
+//This is an example of how a static member of a Class can
+//be initialized only once by a static member function of the
+//same Class
 std::vector<Core::APU> Core::APU_policy = apu_policy_init();
 
 std::vector<Core::APU> Core::apu_policy_init(){

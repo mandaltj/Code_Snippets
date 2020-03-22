@@ -14,6 +14,10 @@ std::string get_current_dir(){
 int main(){
     Core::print_apu_policy();
 
+    //On running this program we will observe that the static member
+    //"APU_policy" of Class "Core" will be initialized only once
+    //irrespective  of the number of objects of Class "Core"
+
     std::cout<<"Current Directory: "<<get_current_dir()<<'\n';
 
     Core A(0, 10, 1);
